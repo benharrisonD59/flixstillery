@@ -4,11 +4,13 @@ var plugins = {
   autoprefixer: require( 'gulp-autoprefixer' ),
   babelify: require( 'babelify' ),
   browserify: require( 'browserify' ),
+  cache: require( 'gulp-cache' ),
   changed: require( 'gulp-changed' ),
-  clean: require( 'gulp-clean' ),
   connect: require( "gulp-connect" ),
+  del: require( "del" ),
   htmlReplace: require( 'gulp-html-replace' ),
   htmlmin: require( 'gulp-htmlmin' ),
+  imagemin: require( 'gulp-imagemin' ),
   jshint: require( 'gulp-jshint' ),
   minifyCss: require( 'gulp-minify-css' ),
   rename: require( 'gulp-rename' ),
@@ -22,11 +24,15 @@ var plugins = {
 
 var path = {
   SOURCE: './src/',
+  AUDIO: './src/assets/audio/',
+  JSON: './src/assets/json/',
+  FONTS: './src/assets/fonts/',
+  IMAGES: './src/assets/images/',
   BUILD: './build/',
   DIST: './dist/'
 };
 
-var files = [ "jsx", "sass", "html" ];
+var files = [ "jsx", "sass", "html", "helpers" ];
 
 function defineTasks() {
   // Pull in task definitions
@@ -34,31 +40,21 @@ function defineTasks() {
     require( "./gulp-tasks/" + file )( gulp, plugins, path );
   } );
 
-  gulp.task( 'clean', clean );
-  gulp.task( 'jshint', jshint );
-  gulp.task( 'webserver', webserver );
-  gulp.task( 'watch', [ 'webserver', 'watch-jsx', 'watch-html', 'watch-sass' ] );
-  gulp.task( 'default', [ 'clean', 'html', 'jsx', 'sass', 'jshint' ] );
-}
-
-function clean() {
-  gulp.src( path.DIST + "/*", {
-      read: false
-    } )
-    .pipe( plugins.clean() );
-}
-
-function webserver() {
-  plugins.connect.server( {
-    livereload: true,
-    root: './build'
-  } );
-}
-
-function jshint() {
-  gulp.src( path.BUILD + 'js/*.js' )
-    .pipe( plugins.jshint() )
-    .pipe( plugins.jshint.reporter( 'default' ) );
+  gulp.task( 'watch', [
+    'webserver',
+    'watch-jsx',
+    'watch-html',
+    'watch-sass'
+  ] );
+  gulp.task( 'default', [
+    'html',
+    'jsx',
+    'sass',
+    'audio',
+    'fonts',
+    'images',
+    'jshint'
+  ] );
 }
 
 defineTasks();

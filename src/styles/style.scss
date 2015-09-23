@@ -1,12 +1,15 @@
 @import 'reset';
 @import 'bootstrap';
-$lightgrey: #d1d1d1;
+$mainOrange: #C8552F;
+
 body {
-  background: $lightgrey;
+  background-image: url("./images/background.jpg");
   margin: 11px;
 }
 
 .jumbotron {
+  background: rgba(40, 40, 40, 0.4);
+  color: $mainOrange;
   margin: 11px;
   padding: 48px;
 }

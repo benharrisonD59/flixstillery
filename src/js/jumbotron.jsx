@@ -5,8 +5,8 @@ var Jibble = React.createClass( {
   render: function() {
     return (
       <Jumbotron>
-        <h1>Hello, World!!</h1>
-        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <h1>FLIXSTILLERY!!</h1>
+        <p>A better drinking game!</p>
       </Jumbotron>
     );
   }
