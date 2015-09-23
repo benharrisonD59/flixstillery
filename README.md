@@ -1,1 +1,1 @@
-A new React Boilerplate, more details to come!
+A new version of Flixstillery, this time written in ReactJS!
