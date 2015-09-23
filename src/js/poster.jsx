@@ -5,7 +5,7 @@ var Poster = React.createClass( {
 
   render: function() {
     return (
-        <Panel header={this.props.title} className="Poster" bsStyle={this.props.exists}>
+        <Panel footer={this.props.title} className="Poster">
           <img src={this.props.poster} alt={this.props.tags} />
         </Panel>
     );
