@@ -1,13 +1,13 @@
 var React = require( "react" );
+var Panel = require( "react-bootstrap/lib/Panel" );
 
 var Poster = React.createClass( {
 
   render: function() {
     return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <img src={this.props.poster} alt={this.props.tags} />
-      </div>
+        <Panel header={this.props.title} className="Poster" bsStyle={this.props.exists}>
+          <img src={this.props.poster} alt={this.props.tags} />
+        </Panel>
     );
   }
 

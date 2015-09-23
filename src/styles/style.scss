@@ -8,8 +8,24 @@ body {
 }
 
 .jumbotron {
-  background: rgba(40, 40, 40, 0.4);
+  background: rgba(20, 20, 20, 0.7);
   color: $mainOrange;
   margin: 11px;
   padding: 48px;
+}
+
+.posterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Poster {
+  margin: 20px;
+}
+.panel {
+  border: 0;
+}
+.panel-body {
+  padding: 0;
 }

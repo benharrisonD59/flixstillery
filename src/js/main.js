@@ -17,9 +17,18 @@ var App = React.createClass( {
     return (
       <div>
         <Jumbotron / >
-        {this.state.movies.map(function(movie) {
-          return ( <Poster title={movie.title} poster={movie.poster} tags={movie.tags} /> );
-        })}
+        <div className="posterContainer">
+          {this.state.movies.map(function(movie) {
+            return (
+              <Poster
+                title={movie.title}
+                poster={movie.poster}
+                tags={movie.tags}
+                exists={movie.exists}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
