@@ -14,3 +14,15 @@ var Poster = React.createClass( {
 } );
 
 module.exports = Poster;
+<div className="posterContainer">
+          {this.state.movies.map(function(movie) {
+            return (
+              <Poster
+                title={movie.title}
+                poster={movie.poster}
+                tags={movie.tags}
+                exists={movie.exists}
+              />
+            );
+          })}
+        </div>
