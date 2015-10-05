@@ -24,34 +24,86 @@ body {
   background: $dark;
   color: $light;
   min-height: 45vh;
-  height: 45vh;
-  margin: 30px 0 0 0;
+  height: 60vh;
+  margin: 30px 0 -8px 0;
+  padding: 10px;
   border: 3px solid $light;
   border-radius: 3px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, .6);
   .panel-body {
     height: 100%;
     width: 100%;
-    display: table;
-    p {
-      display: table-cell;
-      vertical-align: middle;
-      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-      font-family: 'Yantramanav', sans-serif;
-      font-size: 4.5em;
+    span {
+      height: 100%;
+      width: 100%;
+      display: table;
+      p {
+        display: table-cell;
+        vertical-align: middle;
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        font-family: 'Yantramanav', sans-serif;
+        font-size: 4.5em;
+      }
     }
   }
+}
+
+.progress {
+  height: 5px;
+  border-radius: 0;
+  margin: 0 3px 3px 3px;
+  background-color: transparent;
+}
+
+.progress-bar {
+  transition: width 1s linear;
+}
+
+button:focus {
+  outline: 0 !important;
 }
 
 .btn-group-justified {
   width: 100%;
   text-align: center;
-  .btn {
-    width: 15%;
-    background: $light;
-    color: $dark;
-    border: 3px solid $light;
-    border-radius: 0;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .6);
+  .btn:first-child {
+    border-left: 3px solid $light;
   }
+  .btnNoClrChng {
+    width: 13%;
+    background: $dark;
+    color: $light;
+    border-left: 0;
+    border-right: 3px solid $light;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0;
+  }
+  .btnColorChng {
+    width: 13%;
+    color: $light;
+    border-left: 0;
+    border-right: 3px solid $light;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.commentAnimation-enter {
+  opacity: 0.01;
+}
+
+.commentAnimation-enter.commentAnimation-enter-active {
+  opacity: 1;
+  transition: opacity .05s ease-in;
+}
+
+.commentAnimation-leave {
+  opacity: 1;
+}
+
+.commentAnimation-leave.commentAnimation-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
 }
